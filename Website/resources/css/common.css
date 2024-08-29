@@ -1,0 +1,719 @@
+/* External CSS style file */
+
+@font-face {
+   font-family: 'UltrakillFont'; /*a name to be used later*/
+   src: url('../fonts/VCR_OSD_MONO_1.001.ttf'); /*URL to font*/
+}
+
+* {
+   box-sizing: border-box;
+}
+
+body {
+   font-family: Arial;
+   padding: 10px;
+   background: rgb(31, 31, 31);
+   /* background-image: url("Background.gif"); */
+   background-repeat: repeat-y;
+   background-size: 100%;
+}
+
+a
+{
+   text-decoration: none;
+}
+
+/* Header (div) formatting */
+.header {
+   padding: 10px;
+   text-align: center;
+   background-color: #cccccc;
+   color: #000000;
+}
+
+.header h1 {
+   font-size: 50px;
+}
+
+
+/* Make the logo have a rounded edge */
+img.top-image {
+   vertical-align: middle;
+}
+
+.runSelectContainer
+{
+   margin: 0 auto 0 auto;
+   width: 48vw;
+   padding: 1%;
+   border-radius: 0;
+   background-color: rgba(201, 7, 0, 0.1);
+}
+
+.runTableContainer
+{
+   margin: 0 auto 0 auto;
+   width: 48vw;
+   padding: 1%;
+}
+
+.runTableContainer img
+{
+   width: 2vw;
+}
+
+.runTableContainer div
+{
+   color: white;
+   font-family: UltraKillFont;
+   font-size: 0.9vw;
+   display: grid;
+   gap: 1%;
+   text-wrap: nowrap;
+}
+
+.runTableContainerInstance
+{
+   padding: 6px 0px 6px 0px;
+   margin: 1px 0px 1px 0px;
+   border: solid rgb(72, 72, 72) 1px;
+   align-items: center;
+}
+
+.runTableContainerInstance:hover
+{
+   padding: 6px 0px 6px 0px;
+   margin: 1px 0px 1px 0px;
+   border: solid rgb(72, 72, 72) 1px;
+   background-color: #210000 !important;
+   align-items: center;
+}
+
+.runTableContainerInstance:nth-child(odd)
+{
+   background-color: rgb(21, 21, 21);
+}
+
+.runTableContainerInstance:nth-child(even)
+{
+   background-color: rgb(37, 37, 37);
+}
+
+.runTableContainerLevel
+{
+   text-align: center;
+}
+
+.flexBox
+{
+   display: flex;
+}
+
+.ultrakillTitleText
+{
+   font-family: UltrakillFont;
+   color: white;
+   text-align: center;
+}
+
+.ultrakillTitleImage
+{
+   width: 40%;
+   margin-left: 30%;
+   margin-right: 30%;
+}
+
+.ultrakillTitleButtonMain
+{
+   background-color: rgb(0, 0, 0,0.5);
+   border-radius: 0.7vw;
+   border: solid rgb(56, 56, 56) 2px;
+   width: 25vw;
+   height: 4vw;
+   margin-top: 0.2vw;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.ultrakillTitleButtonMain:hover
+{
+   background-color: rgb(238, 238, 238,0.5);
+   border-radius: 0.7vw;
+   border: solid;
+   border-width: 0.2vw;
+   width: 25vw;
+   height: 4vw;
+   margin-top: 0.2vw;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.ultrakillTitleButtonMain h2
+{
+   font-family: UltrakillFont;
+   font-size: 200%;
+   color: white;
+   text-align: center;
+   margin:0px;
+}
+
+.titleAnchor
+{
+   color:black;
+}
+
+.settingChunk
+{
+   background-color: rgb(0, 0, 0,0.5);
+   padding: 2vw;
+   border-radius: 0.5vw;
+   margin-bottom: 0.5vw;
+}
+
+.settingChunk h3
+{
+   font-family: UltrakillFont;
+   color: whitesmoke;
+   margin-top: 0px;
+   margin-bottom: 0.5%;
+   font-size: 200%;
+}
+
+.settingChunk select
+{
+   box-sizing: border-box;
+   width: 15vw;
+   padding: 10px;
+   border: solid 1px white;
+   border-radius: 5px;
+   color: white;
+   font-family: UltrakillFont;
+   font-size: 1vw;
+   background-color: black;
+}
+
+.settingChunk input[type="text"], input[type="url"]
+{
+   box-sizing: border-box;
+   width: 15vw;
+   padding: 10px;
+   border: solid 1px white;
+   border-radius: 5px;
+   color: white;
+   font-family: UltrakillFont;
+   font-size: 1vw;
+   background-color: black;
+}
+
+.settingChunk select option
+{
+   font-size: 1vw;
+   font-family: UltrakillFont;
+}
+
+.button
+{
+   background-color: rgb(0, 0, 0,0.5);
+   border: solid white;
+   color: white;
+   width: 15vw;
+   height: 4vw;
+   padding: 0vw 2vw;
+   border-radius: 0.8vw;
+   font-family: UltrakillFont;
+   font-size: 200%;
+   cursor: pointer;
+}
+
+.button:hover
+{
+   background-color: rgb(238, 238, 238,0.5);
+   border: solid white;
+   color: white;
+   width: 15vw;
+   height: 4vw;
+   padding: 0vw 2vw;
+   border-radius: 0.8vw;
+   font-family: UltrakillFont;
+   font-size: 200%;
+   cursor: pointer;
+}
+
+.levelButton
+{
+   background-color: rgb(0, 0, 0,0.5);
+   border: solid white;
+   color: white;
+   width: 49%;
+   height: 2vw;
+   padding: 0vw 2vw;
+   border-radius: 0.4vw;
+   font-family: UltrakillFont;
+   font-size: 150%;
+   cursor: pointer;
+}
+
+.levelButton:hover
+{
+   background-color: rgb(238, 238, 238,0.5);
+   border: solid white;
+   color: white;
+   width: 49%;
+   height: 2vw;
+   padding: 0vw 2vw;
+   border-radius: 0.4vw;
+   font-family: UltrakillFont;
+   font-size: 150%;
+   cursor: pointer;
+}
+
+.levelButtonSelected
+{
+   background-color: rgba(255, 255, 255, 1);
+   border: solid rgb(0, 0, 0);
+   color: rgb(0, 0, 0);
+   width: 49%;
+   height: 2vw;
+   padding: 0vw 2vw;
+   border-radius: 0.4vw;
+   font-family: UltrakillFont;
+   font-size: 150%;
+   cursor: pointer;
+}
+
+.levelButtonSelected:hover
+{
+   background-color: rgba(78, 78, 78, 0.5);
+   border: solid rgb(237, 237, 237);
+   color: white;
+   width: 49%;
+   height: 2vw;
+   padding: 0vw 2vw;
+   border-radius: 0.4vw;
+   font-family: UltrakillFont;
+   font-size: 150%;
+   cursor: pointer;
+}
+
+.categoryButton
+{
+   background-color: rgb(0, 0, 0,0.5);
+   border: solid white;
+   color: white;
+   width: 24%;
+   height: 2vw;
+   padding: 0vw 2vw;
+   border-radius: 0.4vw;
+   font-family: UltrakillFont;
+   font-size: 1.5vw;
+   cursor: pointer;
+}
+
+.categoryButton:hover
+{
+   background-color: rgb(238, 238, 238,0.5);
+   border: solid white;
+   color: white;
+   width: 24%;
+   height: 2vw;
+   padding: 0vw 2vw;
+   border-radius: 0.4vw;
+   font-family: UltrakillFont;
+   font-size: 1.5vw;
+   cursor: pointer;
+}
+
+.categoryButtonSelected
+{
+   background-color: rgba(255, 255, 255, 1);
+   border: solid rgb(0, 0, 0);
+   color: rgb(0, 0, 0);
+   width: 24%;
+   height: 2vw;
+   padding: 0vw 2vw;
+   border-radius: 0.4vw;
+   font-family: UltrakillFont;
+   font-size: 1.5vw;
+   cursor: pointer;
+}
+
+.categoryButtonSelected:hover
+{
+   background-color: rgba(78, 78, 78, 0.5);
+   border: solid rgb(237, 237, 237);
+   color: white;
+   width: 24%;
+   height: 2vw;
+   padding: 0vw 2vw;
+   border-radius: 0.4vw;
+   font-family: UltrakillFont;
+   font-size: 1.5vw;
+   cursor: pointer;
+}
+
+.levelSelect
+{
+   width: 100%;
+   background-color: rgb(0, 0, 0,0.5);
+   padding: 10px 10px 10px 10px;
+   border-radius: 10px;
+   margin: 0px 5px 0px 5px;
+}
+
+.levelSelectThumbnail h2
+{
+   text-align: center;
+   font-family: UltrakillFont;
+   color: white;
+   border-bottom: solid white 3px;
+   margin: 0px 0px 15px 0px;
+   padding-bottom: 7px;
+}
+
+.levelSelectThumbnail img
+{
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   width: 90%;
+}
+
+.levelSelectThumbnail
+{
+   margin-bottom: 10px;
+   padding-bottom: 20px;
+
+   border-bottom: 3px solid white;
+   
+}
+
+.levelUserPfp img
+{
+   width: 110%;
+}
+
+.levelUserName 
+{
+   word-wrap: break-word;
+   display: flex;
+   align-items: center;
+}
+
+.levelUserName p
+{
+   font-family: UltrakillFont;
+   font-size: 0.7vw;
+   color: white;
+   margin:0px;
+}
+
+.levelUserDiff 
+{
+   display: flex;
+   align-items: center;
+}
+
+.levelUserDiff p
+{
+   font-family: UltrakillFont;
+   font-size: 0.8vw;
+   color: white;
+   margin:0px;
+}
+
+.levelUserTime 
+{
+   display: flex;
+   align-items: center;
+}
+
+.levelUserTime p
+{
+   font-family: UltrakillFont;
+   color: white;
+   margin:0px;
+}
+
+.levelScoreInstance
+{
+   background-color: rgb(0, 0, 0,0.5);
+   border-radius: 2px;
+   display: grid;
+   grid-template-columns: 10% 35% 21% 25%;
+   gap: 0px 3%;
+   margin-right: 10px;
+}
+
+.levelContainer
+{
+   overflow-y:scroll;
+   overflow-x: hidden;
+   height: 200px;
+}
+
+.levelRows
+{
+   display: grid;
+   gap: 10px;
+   justify-content: space-around;
+   margin-bottom: 10px;
+}
+
+.layerHeading
+{
+   font-family: UltrakillFont;
+   color: white;
+   font-size: 2vw;
+   font-weight: 100;
+   border-bottom: solid white;
+}
+
+.userRun
+{
+   color: white;
+   background-color: #000000;
+   font-family: UltrakillFont;
+   font-size: 1vw;
+   padding:10px;
+   border-radius:5px;
+}
+
+.userRun h2
+{
+   margin: 3px 0px 10px 0px;
+}
+
+.userRunComment
+{
+   height: 1vw;
+   margin-right: 5px;
+}
+
+.aRanked
+{
+   color:white;
+}
+
+.pRanked
+{
+   color:gold;
+}
+
+.nmRanked
+{
+   color:lime;
+}
+
+.playersLayout
+{
+   display: flex;
+   justify-content: space-evenly;
+   flex-wrap: wrap;
+   flex-direction: row;
+   width: 65vw;
+   margin: 15px auto 10px auto;
+}
+
+.playersLayout img
+{
+   display: block;
+   margin: 0px auto 0px auto;
+   border-radius: 10px;
+}
+
+.playersLayout h2,h3
+{
+   margin: 10px 0px 10px 0px;
+   text-align: center;
+   font-weight: bold;
+}
+
+.playersLayout div
+{
+   background-color: rgb(73, 73, 73);
+   color: white;
+   font-family: UltrakillFont;
+   border-radius: 10px;
+}
+
+.playersLayout div.flexbox
+{
+   justify-content: space-around;
+}
+
+.playerBox
+{
+   margin: 10px;
+}
+
+.playerBox p
+{
+   border: solid 1px white;
+   padding: 10px;
+   margin: 4px;
+}
+
+
+.playerProfile
+{
+   color: white;
+   background-color: rgba(0,0,0,0.5);
+   font-family: UltrakillFont;
+   font-size: 1vw;
+   padding:10px;
+   border-radius:5px;
+   width: 60%;
+}
+
+.playerProfile img
+{
+   display: block;
+   border-radius: 10px;
+   width: 10vw;
+   height: 10vw;
+}
+
+.playerProfile table
+{
+   color: white;
+   font-family: UltrakillFont;
+}
+
+.playerProfile th, td
+{
+   width: 5vw;
+}
+
+.profileLevelGrid
+{
+   display: grid;
+   grid-template-columns: 20% 10% 10% 10% 10% 20% 20%;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.profileLevelGrid:hover
+{
+   display: grid;
+   grid-template-columns: 20% 10% 10% 10% 10% 20% 20%;
+   background-color: #210000;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.profileLevelGrid img
+{
+   width: 2vw;
+   height: 2vw;
+}
+
+.profileTableContainer
+{
+   display: block;
+   border: solid white 3px;
+   border-radius: 10px;
+   margin: 0px 60px;
+   padding: 0px 10px;
+}
+
+a.nostyle:link {
+   text-decoration: inherit;
+   color: inherit;
+   cursor: pointer;
+}
+
+a.nostyle:visited {
+   text-decoration: inherit;
+   color: inherit;
+   cursor:pointer;
+}
+
+/* CSS Layout from W3Schools: https://www.w3schools.com/css/css_templates.asp */
+/* Style the top navigation bar */
+.topnav {
+   overflow: hidden;
+   background-color: #333;
+ }
+ 
+ /* Style the topnav links */
+ .topnav a {
+   float: left;
+   display: block;
+   color: #f2f2f2;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+ }
+ 
+ /* Change color on hover */
+ .topnav a:hover {
+   background-color: #ddd;
+   color: black;
+ }
+ 
+ /* Style the content */
+ .content {
+   background-color: #ddd;
+   padding: 10px;
+ }
+ 
+ /* Style the footer */
+ .footer {
+   background-color: #cccccc;
+   padding: 10px;
+ }
+
+
+
+ /* Dropdown Button */
+ .dropbtn {
+   background-color: #000000;
+   color: white;
+   padding: 16px 25px 16px 25px;
+   width: 46vw;
+   border-radius: 0.3vw;
+   font-size: 2vw;
+   font-family: UltrakillFont;
+   border: solid white;
+   cursor: pointer;
+ }
+ 
+ /* Dropdown button on hover & focus */
+ .dropbtn:hover, .dropbtn:focus {
+   background-color: rgba(255, 255, 255, 0.5);
+ }
+ 
+ /* The container <div> - needed to position the dropdown content */
+ .dropdown {
+   position: relative;
+   display: inline-block;
+ }
+ 
+ /* Dropdown Content (Hidden by Default) */
+ .dropdown-content {
+   display: none;
+   position: absolute;
+   background-color: #f1f1f1;
+   width: 40vw;
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+   z-index: 1;
+   overflow-y: scroll;
+   height: 30vw;
+ }
+ 
+ /* Links inside the dropdown */
+ .dropdown-content a {
+   color: black;
+   padding: 12px 16px;
+   text-decoration: none;
+   display: block;
+   
+ }
+ 
+ /* Change color of dropdown links on hover */
+ .dropdown-content a:hover {background-color: #ddd;}
+ 
+ /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+ .show {display:block;} 
