@@ -1,3 +1,7 @@
+<?php
+    include './resources/helper/headers.php';
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,11 +10,10 @@
     </head>
 
     <body>
-        <div class="flexBox" style="justify-content:space-between; margin-bottom:10px;">
-            <a href="./runners.html"><button type="button" class="button">Back</button></a>
-            <h1 class='ultrakillTitleText'>-- Level Select --</h1>
-            <div style="width:15vw;height:4vw;padding: 0vw 2vw;"></div>
-        </div>
+        
+        <?php
+            standardHeader("./runners.html", "Add A Runner");
+        ?>
     
         <form method="post" action="/intermediateUser.html" autocomplete="off">
             <div class='settingChunk'>
