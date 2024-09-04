@@ -1,6 +1,6 @@
 <?php
     // include_once './Website/resources/helper/databaseHelper.php';
-    include_once './Website/resources/helper/levelMaker.php';
+    include_once('./Website/resources/helper/levelMaker.php');
     // include './Website/resources/helper/numberConversion.php';
 ?>
 
