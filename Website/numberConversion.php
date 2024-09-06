@@ -20,4 +20,16 @@
 
         return $durationString;
     }
+
+    function toSeconds($timeCode)
+    {
+        $generatedTime = 0.0;
+
+        $Minutes = floatval(substr($timeCode, 0, 2));
+        $Seconds = floatval(substr($timeCode, 3, 9));
+
+        $generatedTime = ($Minutes * 60) + $Seconds;
+
+        return $generatedTime;
+    }
 ?>
