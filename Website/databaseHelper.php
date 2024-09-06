@@ -5,7 +5,7 @@
 <?php
     function getLevelDetails($levelId)
     {
-        $db = new SQLite3('C:\Users\order\Github\UltrakillPHP\Ultrakill-PHP\Website\database\Ultrakill.db');
+        $db = new SQLite3('Ultrakill.db');
 
         $results = $db->query('SELECT * FROM Level where LevelCode = "' . $levelId . '";');
 
@@ -20,7 +20,7 @@
 
     function getBasicRuns($levelId, $category)
     {
-        $db = new SQLite3('C:\Users\order\Github\UltrakillPHP\Ultrakill-PHP\Website\database\Ultrakill.db');
+        $db = new SQLite3('Ultrakill.db');
 
         $queryString = "";
 
@@ -53,5 +53,58 @@
         $db->close();
 
         return $returnedString;
+    }
+
+    function getRunnerDropdown()
+    {
+        $db = new SQLite3('Ultrakill.db');
+
+        $queryString = "SELECT * FROM Runners;";
+
+        $returnedString = "";
+
+        $results = $db->query($queryString);
+
+        while ($row = $results->fetchArray())
+        {
+            $returnedString .= "<option value = \"" . $row["UserID"] . "\">" . $row["DisplayName"] . "</option>";
+        }
+
+
+
+        $results->finalize();
+        $db->close();
+
+        return $returnedString;
+    }
+
+    function addARun($runner, $category, $time, $video, $comment, $Level, $difficulty, $exit, $type)
+    {
+        $db = new SQLite3('Ultrakill.db');
+
+        $queryString = "";
+
+        switch($type)
+        {
+            case 1:
+                $queryString = "INSERT INTO Runs (Runner, Category, Time, Comment, Video, LevelCode, Difficulty, Exit) VALUES ('". $runner ."','". $category ."','" . $time . "','" . $comment . "','" . $video. "','" . $Level . "','" . $difficulty . "','" . $exit . "');";
+            break;
+
+            case 2:
+                $queryString = "INSERT INTO Runs (Runner, Category, Time, Video, LevelCode, Difficulty, Exit) VALUES ('". $runner ."','". $category ."','" . $time . "','" . $video. "','" . $Level . "','" . $difficulty . "','" . $exit . "');";
+            break;
+
+            case 3:
+                $queryString = "INSERT INTO Runs (Runner, Category, Time, Comment ,LevelCode, Difficulty, Exit) VALUES ('". $runner ."','". $category ."','" . $time . "','" . $comment . "','" . $Level . "','" . $difficulty . "','" . $exit . "');";
+            break;
+
+            case 4:
+                $queryString = "INSERT INTO Runs (Runner, Category, Time, LevelCode, Difficulty, Exit) VALUES ('". $runner ."','". $category ."','" . $time . "','" . $Level . "','" . $difficulty . "','" . $exit . "');";
+            break;
+        }
+
+        $db->query($queryString);
+
+        $db->close();
     }
 ?>
