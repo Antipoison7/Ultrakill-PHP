@@ -107,4 +107,95 @@
 
         $db->close();
     }
+
+    function getNumberOfRunners()
+    {
+        $db = new SQLite3('Ultrakill.db');
+
+        $queryString = "SELECT count(Name) AS runnerCount FROM Runners;";
+
+        $results = $db->query($queryString);
+
+        $output = $results->fetchArray()[0];
+        
+        $results->finalize();
+        $db->close();
+
+        return $output;
+
+    }
+
+    function getDisplayGridLevel($levelCode, $runnerID)
+    {
+        $db = new SQLite3('Ultrakill.db');
+        $outputString = "";
+
+        $queryString = "SELECT runs.rowId as RunId ,Runner, min(time) as minTime, LevelCode
+                        FROM runs
+                        WHERE Exit = \"Normal\"
+                        AND runner = \"" . $runnerID . "\"
+                        AND LevelCode = \"" . $levelCode . "\"
+                        GROUP BY runner, levelcode
+
+                        UNION
+
+                        SELECT  0 as RunId , \"" . $runnerID . "\" as Runner, 0 as minTime, LevelCode
+                        FROM level
+                        WHERE LevelCode
+                        NOT IN (Select LevelCode FROM runs WHERE Exit = \"Normal\" AND runner = \"" . $runnerID . "\")
+                        AND runner = \"" . $runnerID . "\"
+                        AND LevelCode = \"" . $levelCode . "\"
+                        ORDER BY LevelCode;";
+
+        $results = $db->query($queryString);
+        $row = $results->fetchArray();
+
+        $outputString = "<p>" . $levelCode . ": " . toDurationSpecial($row["minTime"]) . "</p>";
+
+        $results->finalize();
+        $db->close();
+
+        return $outputString;
+
+    }
+
+    function getRunnerPfp($runnerID)
+    {
+        $db = new SQLite3('Ultrakill.db');
+        $outputString = "";
+
+        $queryString = "SELECT ProfilePicture 
+                        FROM Runners 
+                        Where UserID = \"" . $runnerID . "\";";
+
+        $results = $db->query($queryString);
+        $row = $results->fetchArray();
+
+        $outputString = $row["ProfilePicture"];
+
+        $results->finalize();
+        $db->close();
+
+        return $outputString;
+    }
+
+    function getRunnerName($runnerID)
+    {
+        $db = new SQLite3('Ultrakill.db');
+        $outputString = "";
+
+        $queryString = "SELECT Name
+                        FROM Runners 
+                        Where UserID = \"" . $runnerID . "\";";
+
+        $results = $db->query($queryString);
+        $row = $results->fetchArray();
+
+        $outputString = $row["Name"];
+
+        $results->finalize();
+        $db->close();
+
+        return $outputString;
+    }
 ?>
