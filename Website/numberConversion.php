@@ -32,4 +32,33 @@
 
         return $generatedTime;
     }
+
+    function toDurationSpecial($userSeconds)
+    {
+        $seconds = floatval($userSeconds);
+        $durationString = "";
+
+        $Minutes = floor($seconds / 60);
+        $Seconds = sprintf('%06.3f',fmod($seconds, 60));
+
+        if($userSeconds = 0)
+        {
+            $durationString = "Not Complete";
+        }
+        else
+        {
+            if(strlen($Minutes) == 1)
+            {
+                $durationString = "0" . $Minutes;
+            }
+            else
+            {
+                $durationString = $Minutes;
+            }
+
+            $durationString .= ":" . $Seconds;
+        }
+
+        return $durationString;
+    }
 ?>
