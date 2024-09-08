@@ -12,7 +12,7 @@
     <body>
         
         <?php
-            standardHeader("./runners.html", "Add A Runner");
+            standardHeader("./runners.php", "Add A Runner");
         ?>
     
         <form method="post" action="/intermediateUser.html" autocomplete="off">
