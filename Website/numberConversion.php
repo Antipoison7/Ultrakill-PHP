@@ -25,8 +25,10 @@
     {
         $generatedTime = 0.0;
 
-        $Minutes = floatval(substr($timeCode, 0, 2));
-        $Seconds = floatval(substr($timeCode, 3, 9));
+        $esploded = explode(":", $timeCode);
+
+        $Minutes = floatval($esploded[0]);
+        $Seconds = floatval($esploded[1]);
 
         $generatedTime = ($Minutes * 60) + $Seconds;
 
