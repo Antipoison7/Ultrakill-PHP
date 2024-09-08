@@ -13,7 +13,7 @@
     </head>
     <body>
         <?php
-            standardHeader("./index.php", "Runners");
+            sideButtonHeader("./index.php", "Runners", "./addRunner.php");
         ?>
 
         <div class="playersLayout">
