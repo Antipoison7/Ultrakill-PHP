@@ -34,16 +34,6 @@
         $levelPRun = getBasicRuns($levelCode, "P");
         $generatedString .= $levelPRun;
 
-        // while ($row = $levelPRun->fetchArray())
-        // {
-        //     $generatedString .= "<div class='levelScoreInstance'>";
-        //         $generatedString .= "<div class='levelUserPfp'><img src='" . $row["profilePicture"] . "'></div>";
-        //         $generatedString .= "<div class='levelUserName'><p>" . $row["name"] . "</p></div>";
-        //         $generatedString .= "<div class='levelUserDiff'><p>" . $row["DifficultyName"] . "</p></div>";
-        //         $generatedString .= "<div class='levelUserTime'><p>" . $row["time"] . "</p></div>";
-        //     $generatedString .= "</div>";
-        // }
-
         $generatedString .= "
                         </div>
                     </div>
@@ -52,5 +42,34 @@
 
 
         echo($generatedString);
+    }
+
+    function runnersDisplayGrid($runnerID)
+    {
+        $generatedString = "";
+
+        $generatedString .= "<a href=\"./userDisplay.html?user=" . $runnerID .  "\">
+            <div style=\"width:20vw\" class=\"playerBox\">
+                <h2>" . getRunnerName($runnerID) . "</h2>
+                <img src=\"./resources/images/" . getRunnerPfp($runnerID) . "\" width=\"40%\">
+                <h3>Boss Times</h3>
+                <div class=\"flexBox\">
+                    <div>".
+                        getDisplayGridLevel("1-4", $runnerID) .
+                        getDisplayGridLevel("2-4", $runnerID) .
+                        getDisplayGridLevel("3-2", $runnerID) .
+                        getDisplayGridLevel("4-4", $runnerID) .
+                    "</div>
+                    <div>" .
+                        getDisplayGridLevel("5-4", $runnerID) .
+                        getDisplayGridLevel("6-2", $runnerID) .
+                        getDisplayGridLevel("7-4", $runnerID) .
+                        getDisplayGridLevel("p-1", $runnerID) .
+                    "</div>
+                </div>
+            </div>
+        </a>";
+
+        return $generatedString;
     }
 ?>
