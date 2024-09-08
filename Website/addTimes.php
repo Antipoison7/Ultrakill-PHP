@@ -48,7 +48,7 @@
         <div class='settingChunk'>
             <h3>Time*</h3>
 
-            <input type="text" id="timesAchieved" name="timeAchieved" placeholder="mm:ss.mmm" pattern="[0-9]{2}[:][0-9]{2}[.][0-9]{3}" required>
+            <input type="text" id="timesAchieved" name="timeAchieved" placeholder="mm:ss.mmm" pattern="\d+:\d\d.\d\d\d" required>
         </div>
 
         <div class='settingChunk'>
