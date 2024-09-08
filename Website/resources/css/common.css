@@ -538,8 +538,9 @@ img.top-image {
    border-radius: 10px;
 }
 
-.playersLayout div.flexbox
+.playersLayoutFlex
 {
+   display: flex;
    justify-content: space-around;
 }
 

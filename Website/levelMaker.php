@@ -53,7 +53,7 @@
                 <h2>" . getRunnerName($runnerID) . "</h2>
                 <img src=\"./resources/images/" . getRunnerPfp($runnerID) . "\" width=\"40%\">
                 <h3>Boss Times</h3>
-                <div class=\"flexBox\">
+                <div class=\"playersLayoutFlex\">
                     <div>".
                         getDisplayGridLevel("1-4", $runnerID) .
                         getDisplayGridLevel("2-4", $runnerID) .
