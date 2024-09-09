@@ -28,11 +28,11 @@
 
         if($category == "A")
         {
-            $queryString = "SELECT runs.Category, Runners.displayname as name, Runners.profilepicture as pfp, min(runs.time) as time, Difficulty.DifficultyName, Difficulty.DifficultyDescription FROM runs LEFT JOIN Runners ON Runners.userid = runs.runner LEFT JOIN difficulty ON difficulty.DifficultyId = runs.Difficulty WHERE (Category = 'Any% OOB' OR Category = 'Any%') AND levelCode = '" . $levelId . "' GROUP BY name ORDER BY time ASC;";
+            $queryString = "SELECT runs.RowID as RunID, runs.Category, Runners.displayname as name, Runners.UserID, Runners.profilepicture as pfp, min(runs.time) as time, Difficulty.DifficultyName, Difficulty.DifficultyDescription FROM runs LEFT JOIN Runners ON Runners.userid = runs.runner LEFT JOIN difficulty ON difficulty.DifficultyId = runs.Difficulty WHERE (Category = 'Any% OOB' OR Category = 'Any%') AND levelCode = '" . $levelId . "' GROUP BY name ORDER BY time ASC;";
         }
         else
         {
-            $queryString = "SELECT runs.Category, Runners.displayname as name, Runners.profilepicture as pfp, min(runs.time) as time, Difficulty.DifficultyName, Difficulty.DifficultyDescription FROM runs LEFT JOIN Runners ON Runners.userid = runs.runner LEFT JOIN difficulty ON difficulty.DifficultyId = runs.Difficulty WHERE (Category = 'P% OOB' OR Category = 'P%') AND levelCode = '" . $levelId . "' GROUP BY name ORDER BY time ASC;";
+            $queryString = "SELECT runs.RowID as RunID, runs.Category, Runners.displayname as name, Runners.UserID, Runners.profilepicture as pfp, min(runs.time) as time, Difficulty.DifficultyName, Difficulty.DifficultyDescription FROM runs LEFT JOIN Runners ON Runners.userid = runs.runner LEFT JOIN difficulty ON difficulty.DifficultyId = runs.Difficulty WHERE (Category = 'P% OOB' OR Category = 'P%') AND levelCode = '" . $levelId . "' GROUP BY name ORDER BY time ASC;";
         }
 
         $results = $db->query($queryString);
@@ -42,8 +42,8 @@
             $returnedString .= "<div class='levelScoreInstance'>";
                 $returnedString .= "<div class='levelUserPfp'><img src='./resources/images/" . $row["pfp"] . "'></div>";
                 $returnedString .= "<div class='levelUserName'><p>" . $row["name"] . "</p></div>";
-                $returnedString .= "<div class='levelUserDiff'><p>" . $row["DifficultyName"] . "</p></div>";
-                $returnedString .= "<div class='levelUserTime'><p>" . toDuration($row["time"]) . "</p></div>";
+                $returnedString .= "<a href = \"./individualRun.php?runId=" . $row["RunID"] . "&prev=/viewTimes.php\" class='levelUserDiff'><div><p>" . $row["DifficultyName"] . "</p></div></a>";
+                $returnedString .= "<a href = \"./individualRun.php?runId=" . $row["RunID"] . "&prev=/viewTimes.php\" class='levelUserTime'><div><p>" . toDuration($row["time"]) . "</p></div></a>";
             $returnedString .= "</div>";
         }
 
@@ -192,6 +192,34 @@
         $row = $results->fetchArray();
 
         $outputString = $row["Name"];
+
+        $results->finalize();
+        $db->close();
+
+        return $outputString;
+    }
+
+    function getIndividualRun($runID)
+    {
+        $db = new SQLite3('Ultrakill.db');
+        $outputArray = "";
+
+        $queryString = "SELECT Runs.rowId as runID,runners.ProfilePicture, Runs.Category, Runners.displayname as name, Runs.time, Runs.video, Runs.comment, Runs.levelCode, level.LevelName, Difficulty.DifficultyName, Difficulty.DifficultyDescription, Runs.exit 
+                        FROM Runs 
+                        LEFT JOIN Runners 
+                        ON Runners.userid = Runs.runner 
+                        LEFT JOIN Level 
+                        ON Level.LevelCode = Runs.LevelCode
+                        LEFT JOIN difficulty 
+                        ON difficulty.DifficultyId = Runs.Difficulty
+                        LEFT JOIN category
+                        ON category.CategoryName = Runs.Category
+                        WHERE runs.rowid='" . $runID . "';";
+
+        $results = $db->query($queryString);
+        $row = $results->fetchArray();
+
+        $outputString = $row;
 
         $results->finalize();
         $db->close();
