@@ -14,7 +14,7 @@
 
         <body>
                 <?php
-                    standardHeader("." . $_GET["prev"],"Individual Run")
+                    standardHeader($_SERVER['HTTP_REFERER'],"Individual Run")
                 ?>
 <div class='flexBox' style = 'justify-content:center;'>
 <div class='userRun'>
