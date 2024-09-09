@@ -40,8 +40,8 @@
         while ($row = $results->fetchArray())
         {
             $returnedString .= "<div class='levelScoreInstance'>";
-                $returnedString .= "<div class='levelUserPfp'><img src='./resources/images/" . $row["pfp"] . "'></div>";
-                $returnedString .= "<div class='levelUserName'><p>" . $row["name"] . "</p></div>";
+                $returnedString .= "<a href = \"./userDisplay.php?userId=" . $row["UserID"] . "&prev=/viewTimes.php&from=N\" class='levelUserPfp'><div><img src='./resources/images/" . $row["pfp"] . "'></div></a>";
+                $returnedString .= "<a href = \"./userDisplay.php?userId=" . $row["UserID"] . "&prev=/viewTimes.php&from=N\" class='levelUserName'><div><p>" . $row["name"] . "</p></div></a>";
                 $returnedString .= "<a href = \"./individualRun.php?runId=" . $row["RunID"] . "&prev=/viewTimes.php\" class='levelUserDiff'><div><p>" . $row["DifficultyName"] . "</p></div></a>";
                 $returnedString .= "<a href = \"./individualRun.php?runId=" . $row["RunID"] . "&prev=/viewTimes.php\" class='levelUserTime'><div><p>" . toDuration($row["time"]) . "</p></div></a>";
             $returnedString .= "</div>";
@@ -159,44 +159,22 @@
 
     }
 
-    function getRunnerPfp($runnerID)
+    function getRunnerDetails($runnerID)
     {
         $db = new SQLite3('Ultrakill.db');
         $outputString = "";
 
-        $queryString = "SELECT ProfilePicture 
+        $queryString = "SELECT * 
                         FROM Runners 
                         Where UserID = \"" . $runnerID . "\";";
 
         $results = $db->query($queryString);
         $row = $results->fetchArray();
 
-        $outputString = $row["ProfilePicture"];
-
         $results->finalize();
         $db->close();
 
-        return $outputString;
-    }
-
-    function getRunnerName($runnerID)
-    {
-        $db = new SQLite3('Ultrakill.db');
-        $outputString = "";
-
-        $queryString = "SELECT Name
-                        FROM Runners 
-                        Where UserID = \"" . $runnerID . "\";";
-
-        $results = $db->query($queryString);
-        $row = $results->fetchArray();
-
-        $outputString = $row["Name"];
-
-        $results->finalize();
-        $db->close();
-
-        return $outputString;
+        return $row;
     }
 
     function getIndividualRun($runID)
@@ -225,5 +203,73 @@
         $db->close();
 
         return $outputString;
+    }
+
+    function getLevelsCompleted($userID)
+    {
+        $db = new SQLite3('Ultrakill.db');
+        $outputArray = array();
+
+        $queryString = "SELECT runs.LevelCode, Level.LevelName 
+                        FROM Runs 
+                        LEFT JOIN Level 
+                        ON Level.LevelCode = Runs.LevelCode 
+                        WHERE Runner = '" . $userID . "' 
+                        GROUP BY runs.LevelCode 
+                        Order By runs.LevelCode;";
+        
+        $results = $db->query($queryString);
+
+        while ($row = $results->fetchArray())
+        {
+            $outputArray[] = $row["LevelCode"];
+        }
+
+        return $outputArray;
+    }
+
+    function getRunsForLevel($userID, $levelCode)
+    {
+        $db = new SQLite3('Ultrakill.db');
+        $outputArray = array();
+
+        $queryString = "SELECT runs.rowID as runID, Runners.ProfilePicture, Runners.UserID as Name, runs.Time, Difficulty.DifficultyName, Difficulty.DifficultyDescription, runs.category, runs.comment, runs.video, runs.LevelCode, Level.LevelName, runs.Exit
+                        FROM runs
+                        LEFT JOIN Runners
+                        ON runners.UserID = runs.Runner
+                        LEFT JOIN Difficulty
+                        ON difficulty.DifficultyId = runs.Difficulty
+                        LEFT JOIN Level
+                        ON level.LevelCode = runs.LevelCode
+                        WHERE runs.LevelCode = \"" . $levelCode . "\"
+                        AND runs.Runner = \"" . $userID . "\" ORDER BY Time;";
+        
+        $results = $db->query($queryString);
+
+        while ($row = $results->fetchArray())
+        {
+            $outputArray[] = $row;
+        }
+
+        return $outputArray;
+    }
+
+    function levelNameLookup($levelCode)
+    {
+        $db = new SQLite3('Ultrakill.db');
+
+        $queryString = "SELECT LevelName 
+                        FROM Level
+                        WHERE levelCode = '" . $levelCode . "';";
+
+        $results = $db->query($queryString);
+
+        $output = $results->fetchArray()[0];
+        
+        $results->finalize();
+        $db->close();
+
+        return $output;
+
     }
 ?>
