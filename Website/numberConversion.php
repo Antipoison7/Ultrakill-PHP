@@ -63,4 +63,20 @@
 
         return $durationString;
     }
+
+    function getYoutubeID($linkString)
+    {
+        preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $linkString, $match);
+    $youtube_id = $match[1];
+
+    return $youtube_id;
+    }
+
+    function toYoutubeEmbed($youtubeID)
+    {
+        $convString = getYoutubeID($youtubeID);
+        $yts = "<iframe height = '100%' width = '100%' src='https://www.youtube.com/embed/" . $convString . "' title='YouTube video player' frameborder='0' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>";
+
+        return $yts;
+    }
 ?>
