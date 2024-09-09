@@ -18,7 +18,28 @@
         <head>
                <title>Please Dont Break</title>
 
-               <link rel='stylesheet' type='text/css' href='./resources/css/common.css' />
+               <style>
+                    a{
+                    font-family:UltrakillFont;
+                    font-size: 1.5vw;
+                    }
+
+                    a:link {
+                    color: white;
+                    }
+
+                    a:visited {
+                    color: white;
+                    }
+
+                    a:hover {
+                    color: lime;
+                    }
+
+                    a:active {
+                    color: red;
+                    }
+                </style>
         <meta http-equiv='refresh' content='5'; url ='index.php'/>
         </head>
 
