@@ -18,7 +18,7 @@
             $output = toYoutubeEmbed($runVals["Video"]);
        }
         else{
-            $output = "<img width = '100%' height = '100%' src='./resources./images/NoVideo.png' alt='No Video Loaded'>";
+            $output = "<img width = '100%' height = '100%' src='./resources/images/NoVideo.png' alt='No Video Loaded'>";
         }
         return $output;
     }

@@ -25,13 +25,13 @@
                 }
                 
                 $userID = $_GET["userId"];
-                static $userDetails = getRunnerDetails($userID);
-            ?>
+                $userDetails = getRunnerDetails($userID);
+            
         
 
-                <div class="flexBox" style="justify-content: center;">
-                    <div class="playerProfile">
-                        <?php
+                echo("<div class=\"flexBox\" style=\"justify-content: center;\">
+                    <div class=\"playerProfile\">");
+                        
                             echo("<h1 class=\"ultrakillTitleText\">" . $userDetails["Name"] . "</h1>
 
                             <div class=\"flexBox\" style=\"justify-content: center; gap:10px;\">
