@@ -48,7 +48,7 @@
 
         <p><a href="index.php">Damn, if you see this and it doesn't load, click this. Do not refresh the page.</a></p>
         <?php
-            echo(var_dump($_POST));
+            // echo(var_dump($_POST));
 
             if(strlen($Video) != 0) //Has a video
             {

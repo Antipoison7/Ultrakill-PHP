@@ -4,14 +4,9 @@
     include_once('levelMaker.php');
 ?>
 <?php
-    $Runner = $_POST["Runner"];
-    $Category = $_POST["Category"];
-    $Time = $_POST["timeAchieved"];
-    $Video = $_POST["videoLink"];
-    $Comment = $_POST["runnerComment"];
-    $level = $_POST["level"];
-    $Difficulty = $_POST["Difficulty"];
-    $Exit = $_POST["Exit"];
+    $Runner = $_POST["runnerName"];
+    $Display = $_POST["runnerDisplayName"];
+    $SteamID = $_POST["runnerSteamId"];
 ?>
 
 <html lang="en">
@@ -45,45 +40,21 @@
         </head>
 
         
-    <body onload='redirectScript()'>
-
-        <p><a href="index.php">Damn, if you see this and it doesn't load, click this. Do not refresh the page.</a></p>
+    <body>
+        <a href="index.php"><p>Thanks for registering. To set a profile picture or request other changes, message Connor on discord @antipoison or email at orders.connor@gmail.com</p></a>
+        <a href="index.php"><p>Click the text to go back to the home page</p></a>
         <?php
             echo(var_dump($_POST));
 
-            if(strlen($Video) != 0) //Has a video
+            if($SteamID != "")
             {
-                if(strlen($Comment) != 0) //Has comment
-                {
-                    addARun($Runner, $Category, toSeconds($Time), $Video, $Comment, $level, $Difficulty, $Exit, 1);
-                }
-                else //Has no Comment
-                {
-                    addARun($Runner, $Category, toSeconds($Time), $Video, $Comment, $level, $Difficulty, $Exit, 2);
-                }
+                addARunner($Runner, $Display, $SteamID, 1);
             }
-            else //Does not have a video
-            {
-                if(strlen($Comment) != 0) //Has comment
-                {
-                    addARun($Runner, $Category, toSeconds($Time), $Video, $Comment, $level, $Difficulty, $Exit, 3);
-                }
-                else //Has no Comment
-                {
-                    addARun($Runner, $Category, toSeconds($Time), $Video, $Comment, $level, $Difficulty, $Exit, 4);
-                }
+            else
+            { 
+                addARunner($Runner, $Display, $SteamID, 2);
             }
         ?>
-            <script>
-                function redirectScript()
-                {
-                    sleep(1000);
-                    window.location.replace("index.php");
-                }
-                function sleep(ms) {
-                    return new Promise(resolve => setTimeout(resolve, ms));
-                }
-            </script>
 
     </body>
 </html>

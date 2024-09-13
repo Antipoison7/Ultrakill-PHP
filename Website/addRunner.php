@@ -15,7 +15,7 @@
             standardHeader("./runners.php", "Add A Runner");
         ?>
     
-        <form method="post" action="/intermediateUser.html" autocomplete="off">
+        <form method="post" action="./intermediateUser.php" autocomplete="off">
             <div class='settingChunk'>
                 <h3>Runner Name*</h3>
                 <input type="text" id="runnerName" name="runnerName" placeholder="FirstName LastName" required>

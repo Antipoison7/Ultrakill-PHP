@@ -271,4 +271,43 @@
         return $output;
 
     }
+
+    function addARunner($runner, $display, $steamID, $type)
+    {
+        $db = new SQLite3('Ultrakill.db');
+
+        $queryString = "";
+
+        switch($type)
+        {
+            case 1:
+                $queryString = "INSERT INTO Runners (UserID, Name, DisplayName, SteamId) VALUES ((SELECT count(Name)+1 AS runnerCount FROM Runners),'" . $runner . "','" . $display . "','" . $steamID . "');";
+            break;
+
+            case 2:
+                $queryString = "INSERT INTO Runners (UserID, Name, DisplayName, SteamId) VALUES ((SELECT count(Name)+1 AS runnerCount FROM Runners),'" . $runner . "','" . $display . "','N/A');";
+            break;
+        }
+
+        $db->query($queryString);
+
+        $db->close();
+    }
+
+    function getNextRunner()
+    {
+            $db = new SQLite3('Ultrakill.db');
+    
+            $queryString = "SELECT MAX(UserID) as maxRunner FROM Runners;";
+    
+            $results = $db->query($queryString);
+            $row = $results->fetchArray();
+    
+            $outputString = $row;
+    
+            $results->finalize();
+            $db->close();
+    
+            return $outputString+1;
+    }
 ?>
