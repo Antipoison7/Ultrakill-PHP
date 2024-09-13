@@ -631,6 +631,14 @@ a.nostyle:visited {
    cursor:pointer;
 }
 
+.indexFooterCopyright
+{
+   color: white;
+   font-family: UltrakillFont;
+   font-size: 1vw;
+   text-align: center;
+}
+
 /* CSS Layout from W3Schools: https://www.w3schools.com/css/css_templates.asp */
 /* Style the top navigation bar */
 .topnav {
