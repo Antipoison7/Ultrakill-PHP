@@ -28,7 +28,11 @@
 
         if($category == "A")
         {
-            $queryString = "SELECT runs.RowID as RunID, runs.Category, Runners.displayname as name, Runners.UserID, Runners.profilepicture as pfp, min(runs.time) as time, Difficulty.DifficultyName, Difficulty.DifficultyDescription FROM runs LEFT JOIN Runners ON Runners.userid = runs.runner LEFT JOIN difficulty ON difficulty.DifficultyId = runs.Difficulty WHERE (Category = 'Any% OOB' OR Category = 'Any%') AND levelCode = '" . $levelId . "' GROUP BY name ORDER BY time ASC;";
+            $queryString = "SELECT RowID as RunID, Category, displayname as name, UserID, profilepicture as pfp, min(time) as time, DifficultyName, DifficultyDescription FROM(SELECT runs.RowID, * FROM runs LEFT JOIN Runners ON Runners.userid = runs.runner LEFT JOIN difficulty ON difficulty.DifficultyId = runs.Difficulty WHERE (Category = 'Any% OOB' OR Category = 'Any%') AND levelCode = '" . $levelId . "'
+
+            UNION
+
+            SELECT runs.RowID, * FROM runs LEFT JOIN Runners ON Runners.userid = runs.runner LEFT JOIN difficulty ON difficulty.DifficultyId = runs.Difficulty WHERE (Category = 'P% OOB' OR Category = 'P%') AND levelCode = '" . $levelId . "') GROUP BY name ORDER BY time;";
         }
         else
         {
@@ -43,7 +47,14 @@
                 $returnedString .= "<a href = \"./userDisplay.php?userId=" . $row["UserID"] . "&prev=/viewTimes.php&from=N\" class='levelUserPfp'><div><img src='./resources/images/" . $row["pfp"] . "'></div></a>";
                 $returnedString .= "<a href = \"./userDisplay.php?userId=" . $row["UserID"] . "&prev=/viewTimes.php&from=N\" class='levelUserName'><div><p>" . $row["name"] . "</p></div></a>";
                 $returnedString .= "<a href = \"./individualRun.php?runId=" . $row["RunID"] . "&prev=/viewTimes.php\" class='levelUserDiff'><div><p>" . $row["DifficultyName"] . "</p></div></a>";
-                $returnedString .= "<a href = \"./individualRun.php?runId=" . $row["RunID"] . "&prev=/viewTimes.php\" class='levelUserTime'><div><p>" . toDuration($row["time"]) . "</p></div></a>";
+                if(substr($row["Category"],0,1) == "A")
+                {
+                    $returnedString .= "<a href = \"./individualRun.php?runId=" . $row["RunID"] . "&prev=/viewTimes.php\" class='levelUserTime'><div><p>" . toDuration($row["time"]) . "</p></div></a>";
+                }
+                else
+                {
+                    $returnedString .= "<a href = \"./individualRun.php?runId=" . $row["RunID"] . "&prev=/viewTimes.php\" class='levelUserTime'><div><p><span class=\"pRanked\">" . toDuration($row["time"]) . "</span></p></div></a>";
+                }
             $returnedString .= "</div>";
         }
 
