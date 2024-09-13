@@ -180,7 +180,6 @@
     function getIndividualRun($runID)
     {
         $db = new SQLite3('Ultrakill.db');
-        $outputArray = "";
 
         $queryString = "SELECT Runs.rowId as runID,runners.ProfilePicture, Runs.Category, Runners.displayname as name, Runs.time, Runs.video, Runs.comment, Runs.levelCode, level.LevelName, Difficulty.DifficultyName, Difficulty.DifficultyDescription, Runs.exit 
                         FROM Runs 
