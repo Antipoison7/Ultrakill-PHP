@@ -17,5 +17,6 @@
             <a href="./runners.php" class='titleAnchor'><div class='ultrakillTitleButtonMain' id='runners'><h2 id='settingsText'>Runners</h2></div></a>
             <a href="https://www.speedrun.com/ultrakill" class='titleAnchor' target='_blank'><div class='ultrakillTitleButtonMain' id='speedrun'><h2 id='speedText'>Speedrun.com</h2></div></a>
         </div>
+        <p class="indexFooterCopyright">Copyright Connor Orders 2024, Ultrakill owned by Hakita. <br>This website uses JavaScript but is gluten free (Does not use cookies).</p>
     </body>
 </html>
