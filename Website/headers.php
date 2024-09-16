@@ -14,8 +14,15 @@ function sideButtonHeader($link, $title, $link2)
     echo("<a href=\"" . $link . "\"><button type=\"button\" class=\"button\">Back</button></a>");
     echo("<h1 class=\"ultrakillTitleText\">-- " . $title . " --</h1>");
     echo("<a href=\"" . $link2 . "\"><button type=\"button\" class=\"button\">+ Add Runner</button></a>");
-    echo("</div>");
+    echo("</div>"); 
+}
 
-    
+function sideButtonHeaderB($link, $title, $link2)
+{
+    echo("<div class=\"flexBox\" style=\"justify-content:space-between; margin-bottom:10px;\">");
+    echo("<a href=\"" . $link . "\"><div class=\"button\" style=\"display: flex; align-items: center; justify-content: center; margin-left: 10px;\">Back</div></a>");
+    echo("<h1 class=\"ultrakillTitleText\">-- " . $title . " --</h1>");
+    echo("<a href=\"" . $link2 . "\"><div class=\"button\" style=\"display: flex; align-items: center; justify-content: center; margin-left: 10px;\">Mod Login</div></a>");
+    echo("</div>"); 
 }
 ?>
