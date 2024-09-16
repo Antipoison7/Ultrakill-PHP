@@ -321,4 +321,45 @@
     
             return $outputString+1;
     }
+
+    function getUnregistered()
+    {
+        $db = new SQLite3('Ultrakill.db');
+    
+            $queryString = "SELECT * FROM Runners WHERE UserID NOT IN (SELECT RunnerID FROM Details);";
+    
+            $results = $db->query($queryString);
+
+            while ($row = $results->fetchArray())
+            {
+                echo("<option value = \"" . $row["UserID"] . "\">" . $row["Name"] . "</option>");
+            }
+    
+            $results->finalize();
+            $db->close();
+    }
+
+    function registerRunner($userID, $userName, $PassHash)
+    {
+        $db = new SQLite3('Ultrakill.db');
+
+        $queryString = "INSERT INTO Details (RunnerID, Username, PassHash) VALUES (" . $userID . ", '" . $userName . "', '" . $PassHash . "');";
+
+        $db->exec($queryString);
+
+        $db->close();
+    }
+
+    function isValidLogin($userName, $password)
+    {
+        $db = new SQLite3('Ultrakill.db');
+
+        $queryString = "SELECT * FROM Details WHERE Username = '" . $userName . "';";
+
+        $results = $db->query($queryString)->fetchArray();
+
+        $db->close();
+
+        return password_verify($password, $results["PassHash"]);
+    }
 ?>
