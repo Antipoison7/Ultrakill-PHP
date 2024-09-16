@@ -17,15 +17,15 @@
     
         <form method="post" action="./intermediateUser.php" autocomplete="off">
             <div class='settingChunk'>
-                <h3>Runner Name*</h3>
+                <label for="runnerName">Runner Name*</label>
                 <input type="text" id="runnerName" name="runnerName" placeholder="FirstName LastName" required>
             </div>
             <div class='settingChunk'>
-                <h3>Display Name*</h3>
+                <label for="runnerDisplayName">Display Name*</label>
                 <input type="text" id="runnerDisplayName" name="runnerDisplayName" placeholder="Display Name" required>
             </div>
             <div class='settingChunk'>
-                <h3><a href='https://www.steamidfinder.com/' target='_blank'>SteamID (64 Decimal)</a></h3>
+                <label for="runnerSteamId"><a href='https://www.steamidfinder.com/' target='_blank'>SteamID (64 Decimal)</a></label>
                 <input type="text" id="runnerSteamId" name="runnerSteamId" placeholder="steamID64 (Dec):" pattern="[0-9]{17}">
             </div>
             <div>
