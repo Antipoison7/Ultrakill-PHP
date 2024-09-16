@@ -656,6 +656,7 @@ a.nostyle:visited {
    margin-top: 10px;
    padding: 5px;
    text-align: center;
+   font-family: UltrakillFont;
 }
 
 .manageButton:hover
@@ -667,6 +668,7 @@ a.nostyle:visited {
    margin-top: 10px;
    padding: 5px;
    text-align: center;
+   font-family: UltrakillFont;
 }
 
 /* CSS Layout from W3Schools: https://www.w3schools.com/css/css_templates.asp */
