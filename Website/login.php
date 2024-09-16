@@ -19,11 +19,11 @@
         <form method="post" action="./userManagement.php">
             <div class="settingChunk">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username">
+                <input type="text" id="username" name="username" required>
             </div>
             <div class="settingChunk">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="password" name="password" required>
             </div>
             <div class="flexBox">
                 <button type="submit" class="button">Login</button>
