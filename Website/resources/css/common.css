@@ -196,7 +196,7 @@ img.top-image {
    background-color: black;
 }
 
-.settingChunk input[type="text"], input[type="url"]
+.settingChunk input[type="text"], input[type="url"], input[type="password"]
 {
    box-sizing: border-box;
    width: 15vw;
