@@ -19,6 +19,11 @@
                <title>Please Dont Break</title>
 
                <style>
+                    body
+                    {
+                        background-color: black;
+                    }
+
                     p
                     {
                         color: white;

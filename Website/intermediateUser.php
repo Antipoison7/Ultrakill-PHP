@@ -14,11 +14,16 @@
                <title>Please Dont Break</title>
 
                <style>
+                    body
+                    {
+                        background-color: black;
+                    }
+
                     p
                     {
                         color: white;
                     }
-                    
+
                     a{
                     font-family:UltrakillFont;
                     font-size: 1.5vw;
