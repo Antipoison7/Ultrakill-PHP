@@ -27,7 +27,7 @@
 
     <body>
         <?php
-            standardHeader("./index.php", "USER PORTAL");
+            standardHeader("./index.php", "MODERATOR PORTAL");
 
             if((isset($_SESSION["username"]))&&(isset($_SESSION["password"])))
             {
