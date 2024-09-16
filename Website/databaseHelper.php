@@ -362,4 +362,25 @@
 
         return password_verify($password, $results["PassHash"]);
     }
+
+    function dropdownHandler()
+    {
+        $db = new SQLite3('Ultrakill.db');
+
+        $outputString = "<a href='advTimes.php?level=all'>All</a>";
+    
+            $queryString = "SELECT levelcode, levelname FROM Level;";
+    
+            $results = $db->query($queryString);
+
+            while ($row = $results->fetchArray())
+            {
+                $outputString .= "<a href=\"advTimes.php?level=" . $row["LevelCode"] . "\">" . $row["LevelCode"] . ": " . $row["LevelName"] . "</a>";
+            }
+    
+            $results->finalize();
+            $db->close();
+
+            return $outputString;
+    }
 ?>
