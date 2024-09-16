@@ -2,8 +2,6 @@
     session_start();
     include_once 'headers.php';
     include_once 'databaseHelper.php';
-    $_SESSION["username"] = $_POST["username"];
-    $_SESSION["password"] = $_POST["password"];
 ?>
 
 <!DOCTYPE html>
@@ -29,14 +27,41 @@
 
     <body>
         <?php
+            standardHeader("./index.php", "USER PORTAL");
+
             if(isValidLogin($_SESSION["username"], $_SESSION["password"]))
             {
-                echo("welcome");
+                echo("<div class=\"manageDiv\">
+            <a href = \"./editRuns.php\">
+                <div class=\"manageButton\">
+                    <p>Edit Run Details</p>
+                </div>
+            </a>
+
+            <a href = \"./deleteRuns.php\">
+                <div class=\"manageButton\">
+                    <p>Remove Runs</p>
+                </div>
+            </a>
+
+            <a href=\"./addTimes.php\">
+                <div class=\"manageButton\">
+                    <p>Add Runs</p>
+                </div>
+            </a>
+        </div>");
             }
             else
             {
                 echo("<a href = \"./login.php\">INVALID LOGIN, TRY AGAIN</a>");
             }
-        ?>
+        ?>        
     </body>
 </html>
+
+
+<!-- 
+if(($_SESSION["username"] == "Antipoison")&&(isValidLogin($_SESSION["username"], $_SESSION["password"]) == true))
+                {
+                    // echo("admin");
+                } -->
