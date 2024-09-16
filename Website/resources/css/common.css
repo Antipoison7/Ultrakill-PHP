@@ -641,6 +641,34 @@ a.nostyle:visited {
    text-align: center;
 }
 
+.manageDiv
+{
+   width: 60vw;
+   margin: 0px 20vw;   
+}
+
+.manageButton
+{
+   color: white;
+   background-color: black;
+   border: 1px solid white;
+   border-radius: 10px;  
+   margin-top: 10px;
+   padding: 5px;
+   text-align: center;
+}
+
+.manageButton:hover
+{
+   color: white;
+   background-color: rgb(238, 238, 238,0.5);
+   border: 1px solid white;
+   border-radius: 10px;  
+   margin-top: 10px;
+   padding: 5px;
+   text-align: center;
+}
+
 /* CSS Layout from W3Schools: https://www.w3schools.com/css/css_templates.asp */
 /* Style the top navigation bar */
 .topnav {
