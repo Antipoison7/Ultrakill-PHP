@@ -13,7 +13,7 @@
 
     <body>
         <?php
-            standardHeader("./index", "User Login");
+            standardHeader("./index", "MODERATOR LOGIN");
         ?>
 
         <form method="post" action="./loginVerify.php">
@@ -27,7 +27,7 @@
             </div>
             <div class="flexBox">
                 <button type="submit" class="button">Login</button>
-                <a href="./createUser.php"><div class="button" style="display: flex; align-items: center; justify-content: center; margin-left: 10px;">Register</div></a>
+                <!-- <a href="./createUser.php"><div class="button" style="display: flex; align-items: center; justify-content: center; margin-left: 10px;">Register</div></a> -->
             </div>
         </form>
     </body>
