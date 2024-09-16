@@ -170,9 +170,11 @@ img.top-image {
    padding: 2vw;
    border-radius: 0.5vw;
    margin-bottom: 0.5vw;
+   display: flex;
+   flex-direction: column;
 }
 
-.settingChunk h3
+.settingChunk label
 {
    font-family: UltrakillFont;
    color: whitesmoke;
