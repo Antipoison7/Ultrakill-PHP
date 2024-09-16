@@ -1,5 +1,5 @@
 <?php
-    include_once'headers.php';
+    include_once 'headers.php';
 ?>
 
 <!DOCTYPE html>
@@ -20,9 +20,14 @@
             <div class="settingChunk">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username">
+            </div>
+            <div class="settingChunk">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password">
-                <button type="submit">Login</button>
+            </div>
+            <div class="flexBox">
+                <button type="submit" class="button">Login</button>
+                <a href="./createUser.php"><div class="button" style="display: flex; align-items: center; justify-content: center; margin-left: 10px;">Register</div></a>
             </div>
         </form>
     </body>
