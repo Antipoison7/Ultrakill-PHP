@@ -1,5 +1,6 @@
 <?php
     include_once('databaseHelper.php');
+    include_once('headers.php');
 ?>
 
 <html>
@@ -12,13 +13,9 @@
 </head>
 
 <body>
-
-
-    <div class="flexBox" style="justify-content:space-between; margin-bottom:5px;">
-        <a href="./"><button type="button" class="button">Back</button></a>
-        <h1 class='ultrakillTitleText'>-- ADD A RUN --</h1>
-        <div style="width:15vw;height:4vw;padding: 0vw 2vw;"></div>
-    </div>
+    <?php
+        sideButtonHeaderB("./index.php", "ADD A RUN", "./login.php")
+    ?>
     <form method="post" action="intermediate.php" autocomplete="off">
 
         <div class='settingChunk'>
