@@ -22,8 +22,8 @@
     <form method="post" action="intermediate.php" autocomplete="off">
 
         <div class='settingChunk'>
-            <h3>Runner Name*</h3>
 
+            <label for="Runner">Runner Name*</label>
             <select name="Runner" id="Runners" required>
                 <option value="" selected disabled hidden>Runner Name</option>
                 <?php
@@ -33,8 +33,7 @@
         </div>
 
         <div class='settingChunk'>
-            <h3>Category Select*</h3>
-
+            <label for="Category">Category Select*</label>
             <select name="Category" id="Categories" required>
                 <option value="Any%">Any%</option>
                 <option value="Any% OOB">Any% OOB</option>
@@ -46,26 +45,22 @@
         </div>
 
         <div class='settingChunk'>
-            <h3>Time*</h3>
-
+            <label for="timeAchieved">Time*</label>
             <input type="text" id="timesAchieved" name="timeAchieved" placeholder="mm:ss.mmm" pattern="\d+:\d\d.\d\d\d" required>
         </div>
 
         <div class='settingChunk'>
-            <h3>Video Link</h3>
-
+            <label for="videoLink">Video Link</label>
             <input type="url" id="videoLinks" name="videoLink" placeholder="https://youtu.be/" pattern="https://.*">
         </div>
 
         <div class='settingChunk'>
-            <h3>Runner Comments</h3>
-
+            <label for="runnerComment">Runner Comments</label>
             <input type="text" id="runnerComments" name="runnerComment" placeholder="Your comment here">
         </div>
 
         <div class='settingChunk'>
-            <h3>Select Level*</h3>
-
+            <label for="level">Select Level*</label>
             <select name="level" id="Levels" required>
                 <option value="" selected disabled hidden>Select Level</option>
                 <option value="0-1">0-1</option>
@@ -103,8 +98,7 @@
         </div>
 
         <div class='settingChunk'>
-            <h3>Difficulty*</h3>
-
+            <label for="Difficulty">Difficulty*</label>
             <select name="Difficulty" id="Difficulties" required>
                 <option value="" selected disabled hidden>Choose Difficulty</option>
                 <option value="1">Harmless</option>
@@ -116,8 +110,7 @@
         </div>
 
         <div class='settingChunk'>
-            <h3>Exit*</h3>
-
+            <label for="Exit">Exit*</label>
             <select name="Exit" id="Exits" required>
                 <option value="Normal">Normal</option>
                 <option value="Secret">Secret</option>
