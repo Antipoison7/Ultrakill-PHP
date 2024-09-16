@@ -29,10 +29,17 @@
         <?php
             standardHeader("./userManagement.php", "REMOVE RUNS");
 
-            if(isValidLogin($_SESSION["username"], $_SESSION["password"]))
+            if((isset($_SESSION["username"]))&&(isset($_SESSION["password"])))
             {
-                echo("<p>Dev Stuff</p>");
-            }
+                if(isValidLogin($_SESSION["username"], $_SESSION["password"]))
+                {
+                    echo("<p>Dev Stuff</p>");
+                }
+                else
+                {
+                    echo("<a href = \"./login.php\">INVALID LOGIN, TRY AGAIN</a>");
+                }
+                }
             else
             {
                 echo("<a href = \"./login.php\">INVALID LOGIN, TRY AGAIN</a>");

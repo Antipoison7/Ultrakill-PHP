@@ -29,32 +29,40 @@
         <?php
             standardHeader("./index.php", "USER PORTAL");
 
-            if(isValidLogin($_SESSION["username"], $_SESSION["password"]))
+            if((isset($_SESSION["username"]))&&(isset($_SESSION["password"])))
             {
-                echo("<div class=\"manageDiv\">
-            <a href = \"./editRuns.php\">
-                <div class=\"manageButton\">
-                    <p>Edit Run Details</p>
-                </div>
-            </a>
+                if(isValidLogin($_SESSION["username"], $_SESSION["password"]))
+                {
+                    echo("<div class=\"manageDiv\">
+                <a href = \"./editRuns.php\">
+                    <div class=\"manageButton\">
+                        <p>Edit Run Details</p>
+                    </div>
+                </a>
 
-            <a href = \"./deleteRuns.php\">
-                <div class=\"manageButton\">
-                    <p>Remove Runs</p>
-                </div>
-            </a>
+                <a href = \"./deleteRuns.php\">
+                    <div class=\"manageButton\">
+                        <p>Remove Runs</p>
+                    </div>
+                </a>
 
-            <a href=\"./addTimes.php\">
-                <div class=\"manageButton\">
-                    <p>Add Runs</p>
-                </div>
-            </a>
-        </div>");
+                <a href=\"./addTimes.php\">
+                    <div class=\"manageButton\">
+                        <p>Add Runs</p>
+                    </div>
+                </a>
+            </div>");
+                }
+                else
+                {
+                    echo("<a href = \"./login.php\">INVALID LOGIN, TRY AGAIN</a>");
+                }
             }
             else
             {
                 echo("<a href = \"./login.php\">INVALID LOGIN, TRY AGAIN</a>");
             }
+            
         ?>        
     </body>
 </html>
