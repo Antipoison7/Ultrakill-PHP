@@ -16,7 +16,7 @@
             standardHeader("./index", "User Login");
         ?>
 
-        <form method="post" action="./userManagement.php">
+        <form method="post" action="./loginVerify.php">
             <div class="settingChunk">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
