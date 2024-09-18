@@ -136,6 +136,23 @@
 
     }
 
+    function getRunnerIDs()
+    {
+        $db = new SQLite3('Ultrakill.db');
+        $outputArray = array();
+
+        $queryString = "SELECT UserID FROM Runners;";
+        
+        $results = $db->query($queryString);
+
+        while ($row = $results->fetchArray())
+        {
+            $outputArray[] = $row["UserID"];
+        }
+
+        return $outputArray;
+    }
+
     function getDisplayGridLevel($levelCode, $runnerID)
     {
         $db = new SQLite3('Ultrakill.db');

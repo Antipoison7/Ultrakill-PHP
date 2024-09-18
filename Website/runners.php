@@ -19,9 +19,10 @@
         <div class="playersLayout">
         <?php
             $runnerCount = getNumberOfRunners();
+            $runnerIDs = getRunnerIDs();
             for($i = 0; $i < $runnerCount; $i++)
             {
-                echo(runnersDisplayGrid($i+1));
+                echo(runnersDisplayGrid($runnerIDs[$i]));
             }
         ?>
         </div>
