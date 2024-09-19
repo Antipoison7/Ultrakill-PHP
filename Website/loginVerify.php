@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
     session_start();
-    include_once('databaseHelper.php');
     include_once('levelMaker.php');
     $_SESSION["username"] = $_POST["username"];
     $_SESSION["password"] = $_POST["password"];
