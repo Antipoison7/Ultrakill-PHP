@@ -1,7 +1,7 @@
 <?php
     session_start();
     include_once 'headers.php';
-    include_once 'databaseHelper.php';
+    include_once 'adminHelper.php';
 ?>
 
 <!DOCTYPE html>
@@ -45,6 +45,11 @@
                 echo("<a href = \"./login.php\">INVALID LOGIN, TRY AGAIN</a>");
             }
         ?>        
+
+        <input type="radio" name="deleteRadio" id="levelOne" value="1">
+        <label for="levelOne">
+            <div style="width: 300px; height:300px; background-color:salmon;">Text</div>
+        </label>
     </body>
 </html>
 
