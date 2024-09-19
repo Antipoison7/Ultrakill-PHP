@@ -14,7 +14,13 @@
 
         <body>
                 <?php
-                    standardHeader($_SERVER['HTTP_REFERER'],"Individual Run")
+                if(isset($_SERVER['HTTP_REFERER'])){
+                    standardHeader($_SERVER['HTTP_REFERER'],"Individual Run");
+                }
+                else
+                {
+                    standardHeader("./index.php","Individual Run");
+                }
                 ?>
 <div class='flexBox' style = 'justify-content:center;'>
 <div class='userRun'>

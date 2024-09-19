@@ -223,9 +223,16 @@
 
         $results = $db->query($queryString);
         $row = $results->fetchArray();
+        if($row)
+        {
+            $outputString = $row;
+        }
+        else
+        {
+            $outputString = array("RunID"=>"noRunDetected", "LevelCode"=>"noRunDetected", "LevelName"=>"noRunDetected", "Time"=>"0", "name"=>"noRunDetected", "Video"=>null, "Comment"=>null, "Category"=>"NoMo", "DifficultyName"=>"noRunDetected", "Exit"=>"This Website");
+        }
 
-        $outputString = $row;
-
+        
         $results->finalize();
         $db->close();
 
