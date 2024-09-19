@@ -54,7 +54,7 @@
         <a href="index.php"><p>Thanks for registering. To set a profile picture or request other changes, message Connor on discord @antipoison or email at orders.connor@gmail.com</p></a>
         <a href="index.php"><p>Click the text to go back to the home page</p></a>
         <?php
-            echo(var_dump($_POST));
+            // echo(var_dump($_POST));
 
             if($SteamID != "")
             {
