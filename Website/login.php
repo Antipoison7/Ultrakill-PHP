@@ -13,7 +13,7 @@
 
     <body>
         <?php
-            standardHeader("./index", "MODERATOR LOGIN");
+            standardHeader("./index.php", "MODERATOR LOGIN");
         ?>
 
         <form method="post" action="./loginVerify.php">
