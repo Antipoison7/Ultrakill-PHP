@@ -367,19 +367,6 @@
         $db->close();
     }
 
-    function isValidLogin($userName, $password)
-    {
-        $db = new SQLite3('Ultrakill.db');
-
-        $queryString = "SELECT * FROM Details WHERE Username = '" . $userName . "';";
-
-        $results = $db->query($queryString)->fetchArray();
-
-        $db->close();
-
-        return password_verify($password, $results["PassHash"]);
-    }
-
     function dropdownHandler()
     {
         $db = new SQLite3('Ultrakill.db');
