@@ -1,5 +1,6 @@
 <?php
     include_once('numberConversion.php');
+    include_once('cleaner.php');
 ?>
 
 <?php
@@ -92,6 +93,46 @@
     function addARun($runner, $category, $time, $video, $comment, $Level, $difficulty, $exit, $type)
     {
         $db = new SQLite3('Ultrakill.db');
+
+        $queryString = "";
+
+        switch($type)
+        {
+            case 1:
+                $queryString = "INSERT INTO Runs (Runner, Category, Time, Comment, Video, LevelCode, Difficulty, Exit) VALUES ('". $runner ."','". $category ."','" . $time . "','" . $comment . "','" . $video. "','" . $Level . "','" . $difficulty . "','" . $exit . "');";
+            break;
+
+            case 2:
+                $queryString = "INSERT INTO Runs (Runner, Category, Time, Video, LevelCode, Difficulty, Exit) VALUES ('". $runner ."','". $category ."','" . $time . "','" . $video. "','" . $Level . "','" . $difficulty . "','" . $exit . "');";
+            break;
+
+            case 3:
+                $queryString = "INSERT INTO Runs (Runner, Category, Time, Comment ,LevelCode, Difficulty, Exit) VALUES ('". $runner ."','". $category ."','" . $time . "','" . $comment . "','" . $Level . "','" . $difficulty . "','" . $exit . "');";
+            break;
+
+            case 4:
+                $queryString = "INSERT INTO Runs (Runner, Category, Time, LevelCode, Difficulty, Exit) VALUES ('". $runner ."','". $category ."','" . $time . "','" . $Level . "','" . $difficulty . "','" . $exit . "');";
+            break;
+        }
+
+        $db->query($queryString);
+
+        $db->close();
+    }
+
+    function addARunSafe($runner, $category, $time, $video, $comment, $Level, $difficulty, $exit, $type)
+    {
+        $db = new SQLite3('Ultrakill.db');
+
+        $runner = sanitizeHTML($runner);
+        $category = sanitizeHTML($category);
+        $time = sanitizeHTML($time);
+        $video = sanitizeHTML($video);
+        $comment = sanitizeHTML($comment);
+        $Level = sanitizeHTML($Level);
+        $difficulty = sanitizeHTML($difficulty);
+        $exit = sanitizeHTML($exit);
+        $type = sanitizeHTML($type);
 
         $queryString = "";
 
