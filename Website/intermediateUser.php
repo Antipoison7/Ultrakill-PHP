@@ -2,11 +2,12 @@
 <?php
     include_once('databaseHelper.php');
     include_once('levelMaker.php');
+    include_once('cleaner.php');
 ?>
 <?php
-    $Runner = $_POST["runnerName"];
-    $Display = $_POST["runnerDisplayName"];
-    $SteamID = $_POST["runnerSteamId"];
+    $Runner = sanitize($_POST["runnerName"]);
+    $Display = sanitize($_POST["runnerDisplayName"]);
+    $SteamID = sanitize($_POST["runnerSteamId"]);
 ?>
 
 <html lang="en">

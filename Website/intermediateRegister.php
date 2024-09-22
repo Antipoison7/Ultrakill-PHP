@@ -2,10 +2,11 @@
 <?php
     include_once('databaseHelper.php');
     include_once('levelMaker.php');
+    include_once('cleaner.php');
 ?>
 <?php
-    $RunnerID = $_POST["userIDSelect"];
-    $Username = $_POST["username"];
+    $RunnerID = sanitize($_POST["userIDSelect"]);
+    $Username = sanitize($_POST["username"]);
     $PassHash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
 ?>
