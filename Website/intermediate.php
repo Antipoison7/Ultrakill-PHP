@@ -2,16 +2,17 @@
 <?php
     include_once('databaseHelper.php');
     include_once('levelMaker.php');
+    include_once('cleaner.php');
 ?>
 <?php
-    $Runner = $_POST["Runner"];
-    $Category = $_POST["Category"];
-    $Time = $_POST["timeAchieved"];
-    $Video = $_POST["videoLink"];
-    $Comment = $_POST["runnerComment"];
-    $level = $_POST["level"];
-    $Difficulty = $_POST["Difficulty"];
-    $Exit = $_POST["Exit"];
+    $Runner = sanitize($_POST["Runner"]);
+    $Category = sanitize($_POST["Category"]);
+    $Time = sanitize($_POST["timeAchieved"]);
+    $Video = sanitize($_POST["videoLink"]);
+    $Comment = sanitize($_POST["runnerComment"]);
+    $level = sanitize($_POST["level"]);
+    $Difficulty = sanitize($_POST["Difficulty"]);
+    $Exit = sanitize($_POST["Exit"]);
 ?>
 
 <html lang="en">
