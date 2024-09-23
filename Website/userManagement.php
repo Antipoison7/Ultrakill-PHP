@@ -51,6 +51,12 @@
                         <p>Add Runs</p>
                     </div>
                 </a>
+
+                <a href=\"./deleteUser.php\">
+                    <div class=\"manageButton\">
+                        <p>Delete Users</p>
+                    </div>
+                </a>
             </div>");
                 }
                 else

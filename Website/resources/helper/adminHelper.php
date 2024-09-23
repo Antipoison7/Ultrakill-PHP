@@ -84,4 +84,40 @@
         
         $db->exec($queryString);
     }
+
+    function adminGetAllUsers()
+    {
+        $db = new SQLite3('./database/Ultrakill.db');
+        $outputString = "";
+
+        $queryString = "SELECT * FROM Runners;";
+
+        $results = $db->query($queryString);
+
+        while ($row = $results->fetchArray())
+        {
+            $outputString .= "
+            <input type=\"radio\" name=\"deleteRadio\" id=\"level" . $row["UserID"] . "\" value=\"" . $row["UserID"] . "\" class = \"devRadioButton\" required>
+            <label for=\"level" . $row["UserID"] . "\">
+                <div class=\"devRunContainer\" style=\" height: 500px; width: 400px\">
+                    <h1>" . $row["Name"] . "|" . $row["UserID"] . "</h1>
+                    <h2>" . $row["DisplayName"] . "</h2>
+                    <h2>SteamID:</h2>
+                    <h3>" . $row["SteamId"] . "</h3>
+                    <img src=\"./resources/images/" . $row["ProfilePicture"] . "\">
+                </div>
+            </label>
+            ";
+        }
+        return $outputString;
+    }
+
+    function adminDeleteRunner($runnerID)
+    {
+        $db = new SQLite3('./database/Ultrakill.db');
+
+        $queryString = "DELETE FROM Runners WHERE UserID = " . $runnerID . "; DELETE FROM Runs WHERE Runner = '" . $runnerID . "'";
+        
+        $db->exec($queryString);
+    }
 ?>
