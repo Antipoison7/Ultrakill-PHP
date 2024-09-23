@@ -1,6 +1,6 @@
 <?php
-    include_once('databaseHelper.php');
-    include_once('headers.php');
+    include_once('./resources/helper/databaseHelper.php');
+    include_once('./resources/helper/headers.php');
 ?>
 
 <html>

@@ -1,7 +1,7 @@
 <?php
     session_start();
-    include_once 'headers.php';
-    include_once 'adminHelper.php';
+    include_once './resources/helper/headers.php';
+    include_once './resources/helper/adminHelper.php';
 ?>
 
 <!DOCTYPE html>

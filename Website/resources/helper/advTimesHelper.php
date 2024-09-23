@@ -1,6 +1,6 @@
 <?php
-include_once 'databaseHelper.php';
-include_once 'numberConversion.php';
+include_once './resources/helper/databaseHelper.php';
+include_once './resources/helper/numberConversion.php';
 
 function GetAllRuns($selectedCategory, $level, $type)
 {
@@ -234,7 +234,7 @@ else if($type == "allLevel")
 
 function getComplexRuns($identification, $levelID)
 {
-    $db = new SQLite3('Ultrakill.db');
+    $db = new SQLite3('./database/Ultrakill.db');
 
         $outputArray = array();
     
@@ -343,7 +343,7 @@ function getComplexRuns($identification, $levelID)
 
 function getAllComplexRuns($levelID)
 {
-    $db = new SQLite3('Ultrakill.db');
+    $db = new SQLite3('./database/Ultrakill.db');
 
         $outputArray = array();
     

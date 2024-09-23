@@ -1,12 +1,12 @@
 <?php
-    include_once('numberConversion.php');
-    include_once('cleaner.php');
+    include_once('./resources/helper/numberConversion.php');
+    include_once('./resources/helper/cleaner.php');
 ?>
 
 <?php
     function getLevelDetails($levelId)
     {
-        $db = new SQLite3('Ultrakill.db');
+        $db = new SQLite3('./database/Ultrakill.db');
 
         $results = $db->query('SELECT * FROM Level where LevelCode = "' . $levelId . '";');
 
@@ -21,7 +21,7 @@
 
     function getBasicRuns($levelId, $category)
     {
-        $db = new SQLite3('Ultrakill.db');
+        $db = new SQLite3('./database/Ultrakill.db');
 
         $queryString = "";
 
@@ -69,7 +69,7 @@
 
     function getRunnerDropdown()
     {
-        $db = new SQLite3('Ultrakill.db');
+        $db = new SQLite3('./database/Ultrakill.db');
 
         $queryString = "SELECT * FROM Runners;";
 
@@ -92,7 +92,7 @@
 
     function addARun($runner, $category, $time, $video, $comment, $Level, $difficulty, $exit, $type)
     {
-        $db = new SQLite3('Ultrakill.db');
+        $db = new SQLite3('./database/Ultrakill.db');
 
         $queryString = "";
 
@@ -122,7 +122,7 @@
 
     function addARunSafe($runner, $category, $time, $video, $comment, $Level, $difficulty, $exit, $type)
     {
-        $db = new SQLite3('Ultrakill.db');
+        $db = new SQLite3('./database/Ultrakill.db');
 
         $runner = sanitizeHTML($runner);
         $category = sanitizeHTML($category);
@@ -162,7 +162,7 @@
 
     function getNumberOfRunners()
     {
-        $db = new SQLite3('Ultrakill.db');
+        $db = new SQLite3('./database/Ultrakill.db');
 
         $queryString = "SELECT count(Name) AS runnerCount FROM Runners;";
 
@@ -179,7 +179,7 @@
 
     function getRunnerIDs()
     {
-        $db = new SQLite3('Ultrakill.db');
+        $db = new SQLite3('./database/Ultrakill.db');
         $outputArray = array();
 
         $queryString = "SELECT UserID FROM Runners;";
@@ -196,7 +196,7 @@
 
     function getDisplayGridLevel($levelCode, $runnerID)
     {
-        $db = new SQLite3('Ultrakill.db');
+        $db = new SQLite3('./database/Ultrakill.db');
         $outputString = "";
 
         $queryString = "SELECT runs.rowId as RunId ,Runner, min(time) as minTime, LevelCode
@@ -230,7 +230,7 @@
 
     function getRunnerDetails($runnerID)
     {
-        $db = new SQLite3('Ultrakill.db');
+        $db = new SQLite3('./database/Ultrakill.db');
         $outputString = "";
 
         $queryString = "SELECT * 
@@ -248,7 +248,7 @@
 
     function getIndividualRun($runID)
     {
-        $db = new SQLite3('Ultrakill.db');
+        $db = new SQLite3('./database/Ultrakill.db');
 
         $queryString = "SELECT Runs.rowId as runID,runners.ProfilePicture, Runs.Category, Runners.displayname as name, Runs.time, Runs.video, Runs.comment, Runs.levelCode, level.LevelName, Difficulty.DifficultyName, Difficulty.DifficultyDescription, Runs.exit 
                         FROM Runs 
@@ -282,7 +282,7 @@
 
     function getLevelsCompleted($userID)
     {
-        $db = new SQLite3('Ultrakill.db');
+        $db = new SQLite3('./database/Ultrakill.db');
         $outputArray = array();
 
         $queryString = "SELECT runs.LevelCode, Level.LevelName 
@@ -305,7 +305,7 @@
 
     function getRunsForLevel($userID, $levelCode)
     {
-        $db = new SQLite3('Ultrakill.db');
+        $db = new SQLite3('./database/Ultrakill.db');
         $outputArray = array();
 
         $queryString = "SELECT runs.rowID as runID, Runners.ProfilePicture, Runners.UserID as Name, runs.Time, Difficulty.DifficultyName, Difficulty.DifficultyDescription, runs.category, runs.comment, runs.video, runs.LevelCode, Level.LevelName, runs.Exit
@@ -331,7 +331,7 @@
 
     function levelNameLookup($levelCode)
     {
-        $db = new SQLite3('Ultrakill.db');
+        $db = new SQLite3('./database/Ultrakill.db');
 
         $queryString = "SELECT LevelName 
                         FROM Level
@@ -350,7 +350,7 @@
 
     function addARunner($runner, $display, $steamID, $type)
     {
-        $db = new SQLite3('Ultrakill.db');
+        $db = new SQLite3('./database/Ultrakill.db');
 
         $queryString = "";
 
@@ -372,7 +372,7 @@
 
     function getNextRunner()
     {
-            $db = new SQLite3('Ultrakill.db');
+            $db = new SQLite3('./database/Ultrakill.db');
     
             $queryString = "SELECT MAX(UserID) as maxRunner FROM Runners;";
     
@@ -389,7 +389,7 @@
 
     function getUnregistered()
     {
-        $db = new SQLite3('Ultrakill.db');
+        $db = new SQLite3('./database/Ultrakill.db');
     
             $queryString = "SELECT * FROM Runners WHERE UserID NOT IN (SELECT RunnerID FROM Details);";
     
@@ -406,7 +406,7 @@
 
     function registerRunner($userID, $userName, $PassHash)
     {
-        $db = new SQLite3('Ultrakill.db');
+        $db = new SQLite3('./database/Ultrakill.db');
 
         $queryString = "INSERT INTO Details (RunnerID, Username, PassHash) VALUES (" . $userID . ", '" . $userName . "', '" . $PassHash . "');";
 
@@ -417,7 +417,7 @@
 
     function dropdownHandler()
     {
-        $db = new SQLite3('Ultrakill.db');
+        $db = new SQLite3('./database/Ultrakill.db');
 
         $outputString = "<a href='advTimes.php?level=all'>All</a>";
     

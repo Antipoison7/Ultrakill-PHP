@@ -1,7 +1,7 @@
 <?php
     function isValidLogin($userName, $password)
     {
-        $db = new SQLite3('Ultrakill.db');
+        $db = new SQLite3('./database/Ultrakill.db');
     
         $queryString = "SELECT * FROM Details WHERE Username = '" . $userName . "';";
     
@@ -14,7 +14,7 @@
 
     function generateRuns($userName, $password)
     {
-        $db = new SQLite3('Ultrakill.db');
+        $db = new SQLite3('./database/Ultrakill.db');
         $outputArray = array();
 
         $queryString = "";

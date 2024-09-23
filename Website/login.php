@@ -1,5 +1,5 @@
 <?php
-    include_once 'headers.php';
+    include_once './resources/helper/headers.php';
 ?>
 
 <!DOCTYPE html>

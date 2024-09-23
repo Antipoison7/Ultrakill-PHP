@@ -1,5 +1,5 @@
 <?php
-    include_once('databaseHelper.php');
+    include_once('./resources/helper/databaseHelper.php');
 ?>
 
 <?php

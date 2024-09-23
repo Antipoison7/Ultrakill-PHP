@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
-    include_once('databaseHelper.php');
-    include_once('levelMaker.php');
-    include_once('cleaner.php');
+    include_once('./resources/helper/databaseHelper.php');
+    include_once('./resources/helper/levelMaker.php');
+    include_once('./resources/helper/cleaner.php');
 ?>
 <?php
     $RunnerID = sanitize($_POST["userIDSelect"]);

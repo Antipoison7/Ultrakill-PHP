@@ -1,6 +1,6 @@
 <?php
-    include_once 'databaseHelper.php';
-    include_once 'numberConversion.php';
+    include_once './resources/helper/databaseHelper.php';
+    include_once './resources/helper/numberConversion.php';
 
     function getRunHeading($runID)
     {

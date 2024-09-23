@@ -1,7 +1,7 @@
 <?php
-    // include_once './Website/resources/helper/databaseHelper.php';
-    include_once('./Website/resources/helper/levelMaker.php');
-    // include './Website/resources/helper/numberConversion.php';
+    // include_once './Website/resources/helper/./resources/helper/databaseHelper.php';
+    include_once('./Website/resources/helper/./resources/helper/levelMaker.php');
+    // include './Website/resources/helper/./resources/helper/numberConversion.php';
 ?>
 
 <!DOCTYPE html>

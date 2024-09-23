@@ -1,7 +1,7 @@
 <?php
-    include_once 'headers.php';
-    include_once 'databaseHelper.php';
-    include_once 'levelMaker.php';
+    include_once './resources/helper/headers.php';
+    include_once './resources/helper/databaseHelper.php';
+    include_once './resources/helper/levelMaker.php';
 ?>
 
 <!DOCTYPE html>
