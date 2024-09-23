@@ -72,9 +72,9 @@
             let restOf = document.getElementsByClassName("devRunContainer");
             for (i of restOf)
             {
-                i.style.border = "3px solid Black";
+                i.style.boxShadow = "0px 0px 0px 3px #000000";
             }
-            console.log(this.nextSibling.nextSibling.childNodes[0].nextElementSibling.style.border = "3px solid White");
+            console.log(this.nextSibling.nextSibling.childNodes[0].nextElementSibling.style.boxShadow = "0px 0px 13px 2px #00E06C");
         }
     </script>
 </html>

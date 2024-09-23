@@ -3,8 +3,7 @@
     include_once('./resources/helper/adminHelper.php');
     include_once('./resources/helper/levelMaker.php');
     include_once('./resources/helper/cleaner.php');
-?>
-<?php
+    
     $Run = sanitize($_POST["deleteRadio"]);
 ?>
 
