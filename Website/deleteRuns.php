@@ -27,30 +27,56 @@
 
     <body>
         <?php
-            standardHeader("./userManagement.php", "REMOVE RUNS");
+            
 
             if((isset($_SESSION["username"]))&&(isset($_SESSION["password"])))
             {
                 if(isValidLogin($_SESSION["username"], $_SESSION["password"]))
                 {
-                    echo("<p>Dev Stuff</p>");
+                    echo("<form method=\"post\" action=\"./intermediateDelete.php\">");
+                    fakeModDoubleHeader("./userManagement.php", "REMOVE RUNS");
+                    echo("      <div class=\"devRunFlex\">
+                                    ".adminGetAllRuns()."
+                                </div>
+                            </form>
+            ");
                 }
                 else
                 {
+                    fakeStandardHeader("./login.php", "REMOVE RUNS");
                     echo("<a href = \"./login.php\">INVALID LOGIN, TRY AGAIN</a>");
                 }
                 }
             else
             {
+                fakeStandardHeader("./login.php", "REMOVE RUNS");
                 echo("<a href = \"./login.php\">INVALID LOGIN, TRY AGAIN</a>");
             }
-        ?>        
+            ?>
 
-        <input type="radio" name="deleteRadio" id="levelOne" value="1">
-        <label for="levelOne">
-            <div style="width: 300px; height:300px; background-color:salmon;">Text</div>
-        </label>
+        
+            
+                
     </body>
+
+    <script>
+        let element = document.getElementsByClassName("devRadioButton");
+
+        for (i of element)
+        {
+            i.addEventListener("click", highlightSelected);
+        }
+
+        function highlightSelected(event)
+        {
+            let restOf = document.getElementsByClassName("devRunContainer");
+            for (i of restOf)
+            {
+                i.style.border = "3px solid Black";
+            }
+            console.log(this.nextSibling.nextSibling.childNodes[0].nextElementSibling.style.border = "3px solid White");
+        }
+    </script>
 </html>
 
 

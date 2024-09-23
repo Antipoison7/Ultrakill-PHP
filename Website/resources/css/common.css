@@ -671,6 +671,35 @@ a.nostyle:visited {
    font-family: UltrakillFont;
 }
 
+.devRunContainer
+{
+   background-color: salmon;
+   width: 300px;
+   height:300px;
+   padding: 10px 20px;
+   border-radius: 5px;
+   margin: 10px;
+   border: 3px Solid Black;
+}
+
+.devRunContainer h1
+{
+   color: black;
+}
+
+.devRunFlex
+{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
+}
+
+.devRadioButton
+{
+   display:none;
+}
+
 /* CSS Layout from W3Schools: https://www.w3schools.com/css/css_templates.asp */
 /* Style the top navigation bar */
 .topnav {
