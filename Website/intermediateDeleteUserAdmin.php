@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <?php
-    session_start();
     include_once('./resources/helper/adminHelper.php');
     include_once('./resources/helper/levelMaker.php');
-    $_SESSION["username"] = $_POST["username"];
-    $_SESSION["password"] = $_POST["password"];
-
-    $isAdmin = false;
-
-    if(($_SESSION["username"] == "Antipoison")&&(isValidLogin($_SESSION["username"], $_SESSION["password"]) == true))
-    {
-        $isAdmin = true;
-    }
+    include_once('./resources/helper/cleaner.php');
+    
+    $Run = sanitize($_POST["deleteRadio"]);
 ?>
+
 <html lang="en">
         <head>
                <title>Please Dont Break</title>
@@ -49,19 +43,25 @@
                     color: red;
                     }
                 </style>
-        <meta http-equiv='refresh' content='5'; url ='<?php if($isAdmin == true){echo("./userManagementAdmin.php");}else{echo("./userManagement.php");}?>'/>
+        <meta http-equiv='refresh' content='5'; url ='userManagementAdmin.php'/>
         </head>
 
         
     <body onload='redirectScript()'>
 
-        <p><a href="<?php if($isAdmin == true){echo("./userManagementAdmin.php");}else{echo("./userManagement.php");}?>">Damn, if you see this and it doesn't load, click this. Do not refresh the page.</a></p>
-
+        <p><a href="userManagementAdmin.php">Damn, if you see this and it doesn't load, click this. Do not refresh the page.</a></p>
+        <?php
+        if(isset($Run))
+        {
+            adminDeleteRunner($Run);
+        }
+        ?>
             <script>
+
                 function redirectScript()
                 {
                     sleep(1000);
-                    window.location.replace("<?php if($isAdmin == true){echo("./userManagementAdmin.php");}else{echo("./userManagement.php");}?>");
+                    window.location.replace("userManagementAdmin.php");
                 }
                 function sleep(ms) {
                     return new Promise(resolve => setTimeout(resolve, ms));

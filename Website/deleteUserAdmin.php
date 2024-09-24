@@ -31,12 +31,12 @@
 
             if((isset($_SESSION["username"]))&&(isset($_SESSION["password"])))
             {
-                if(isValidLogin($_SESSION["username"], $_SESSION["password"]))
+                if(($_SESSION["username"] == "Antipoison")&&(isValidLogin($_SESSION["username"], $_SESSION["password"]) == true))
                 {
-                    echo("<form method=\"post\" action=\"./intermediateDelete.php\">");
-                    fakeModDoubleHeader("./userManagement.php", "REMOVE RUNS");
+                    echo("<form method=\"post\" action=\"./intermediateDeleteUserAdmin.php\">");
+                    fakeModDoubleHeader("./userManagementAdmin.php", "REMOVE Users");
                     echo("      <div class=\"devRunFlex\">
-                                    ".adminGetAllRuns()."
+                                    ".adminGetAllUsers()."
                                 </div>
                             </form>
             ");

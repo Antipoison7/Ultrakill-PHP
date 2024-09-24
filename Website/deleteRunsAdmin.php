@@ -33,10 +33,10 @@
             {
                 if(isValidLogin($_SESSION["username"], $_SESSION["password"]))
                 {
-                    echo("<form method=\"post\" action=\"./intermediateDeleteUser.php\">");
-                    fakeModDoubleHeader("./userManagement.php", "REMOVE Users");
+                    echo("<form method=\"post\" action=\"./intermediateDeleteAdmin.php\">");
+                    fakeModDoubleHeader("./userManagementAdmin.php", "REMOVE RUNS");
                     echo("      <div class=\"devRunFlex\">
-                                    ".adminGetAllUsers()."
+                                    ".adminGetAllRuns()."
                                 </div>
                             </form>
             ");
