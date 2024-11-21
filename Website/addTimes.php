@@ -116,7 +116,7 @@
         </div>
 
         <div>
-            <input type="submit" value="Submit Run" class="button">
+            <input type="submit" value="Submit Run" class="button" style="width: auto;">
         </div>
 
     </form>
